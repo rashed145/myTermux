@@ -1,9 +1,12 @@
+set -e
+echo -e "\e[1mDownloading configuration files...\e[0m\n"
 curl -L https://raw.githubusercontent.com/rashed145/mytools/main/colorspec -o ~/bin/colorspec --create-dirs
 curl -L https://raw.githubusercontent.com/rashed145/mytools/main/tree -o ~/bin/tree
 curl -L https://raw.githubusercontent.com/rashed145/mytools/main/.profile -o ~/.profile
 curl -L https://raw.githubusercontent.com/rashed145/mytools/main/.bashrc -o ~/.bashrc
 chmod +x ~/bin/*
-mkdir -p ~/.termux ~/.fonts ~/.bash_themes
+mkdir -p ~/{.termux,.fonts,.bash_themes}
+echo -e "\n\e[1mChanging TERMUX settings...\e[0m\n"
 echo """
 allow-external-apps = true
 disable-terminal-session-change-toast = true
@@ -18,4 +21,4 @@ curl -L https://raw.githubusercontent.com/rashed145/polus-bash-theme/main/polus.
 curl -L https://github.com/ryanoasis/nerd-fonts/blob/v2.2.2/patched-fonts/FiraCode/Medium/complete/Fira%20Code%20Medium%20Nerd%20Font%20Complete.ttf?raw=true -o ~/.fonts/FiraCode.ttf
 ln -sf ~/.fonts/FiraCode.ttf ~/.termux/font.ttf
 termux-setup-storage
-termux-reload-settings
+read -n 1 -s -r -p $'\e[1mPress any key to exit and apply changes\e[0m'
