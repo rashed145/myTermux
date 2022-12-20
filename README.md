@@ -18,5 +18,6 @@ enforce-char-based-input = true
 curl -L https://raw.githubusercontent.com/rashed145/polus-bash-theme/main/polus.bash_theme -o ~/.bash_themes/polus.bash_theme
 curl -L https://github.com/ryanoasis/nerd-fonts/blob/v2.2.2/patched-fonts/FiraCode/Medium/complete/Fira%20Code%20Medium%20Nerd%20Font%20Complete.ttf?raw=true -o ~/.fonts/FiraCode.ttf
 ln -sf ~/.fonts/FiraCode.ttf ~/.termux/font.ttf
+termux-setup-storage
 termux-reload-settings
 ```
