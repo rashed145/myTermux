@@ -23,6 +23,6 @@ curl -L https://github.com/ryanoasis/nerd-fonts/blob/v2.2.2/patched-fonts/FiraCo
 ln -sf ~/.fonts/FiraCode.ttf ~/.termux/font.ttf
 termux-setup-storage
 echo -e "\n\e[1mUpdating...\e[0m\n"
-echo "deb https://packages-cf.termux.org/apt/termux-main"|tee $PREFIX/etc/apt/sources.list
+echo "deb https://packages-cf.termux.org/apt/termux-main stable main"|tee $PREFIX/etc/apt/sources.list
 apt update && apt upgrade -y
 read -n 1 -s -r -p $'\e[1mPress any key to exit and apply changes\e[0m' && exit
