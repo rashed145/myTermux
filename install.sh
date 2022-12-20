@@ -24,5 +24,4 @@ ln -sf ~/.fonts/FiraCode.ttf ~/.termux/font.ttf
 termux-setup-storage
 echo -e "\n\e[1mUpdating...\e[0m\n"
 echo "deb https://packages-cf.termux.org/apt/termux-main stable main"|tee $PREFIX/etc/apt/sources.list
-apt update && yes|apt upgrade
-read -n 1 -s -r -p $'\e[1mPress any key to exit and apply changes\e[0m' && exit
+apt update && yes|apt upgrade && read -n 1 -s -r -p $'\e[1mPress any key to exit and apply changes\e[0m' && exit
