@@ -36,8 +36,7 @@ alias hs='h|g'
 shopt -s autocd xpg_echo histappend
 
 PROMPT_COMMAND="${PROMPT_COMMAND}${PROMPT_COMMAND:+;}history -a; history -n"
-bind 'set active-region-start-color "\e[92m"'
-bind 'set active-region-end-color "\e[0m"'
+
 bind "set bell-style visible"
 bind "set colored-completion-prefix on"
 bind "set colored-stats on"
