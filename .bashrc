@@ -25,17 +25,19 @@ alias la='l -A'
 alias lla='la -l'
 alias grep='grep --color=auto'
 alias g='grep'
-alias -- -='cd -'
+alias -- -='cd - 2>/dev/null'
 alias ...='cd ../..'
 alias ....='cd ../../..'
 alias .....='cd ../../../..'
 alias h='history'
 alias rh='history -c; history -w'
 alias hs='h|g'
+alias t=tree
 
 shopt -s autocd xpg_echo histappend
 
 PROMPT_COMMAND="${PROMPT_COMMAND}${PROMPT_COMMAND:+;}history -a; history -n"
+HISTTIMEFORMAT="(%d/%m/%y|%R)=>"
 
 bind "set bell-style visible"
 bind "set colored-completion-prefix on"
