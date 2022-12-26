@@ -34,7 +34,7 @@ alias rh='history -c; history -w'
 alias hs='h|g'
 alias t=tree
 
-shopt -s autocd xpg_echo histappend
+shopt -s autocd xpg_echo
 
 PROMPT_COMMAND="${PROMPT_COMMAND}${PROMPT_COMMAND:+;}history -a; history -n"
 HISTTIMEFORMAT="(%d/%m/%y|%R)=>"
