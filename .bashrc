@@ -1,3 +1,9 @@
+[[ "$-" = *i* ]] ||return
+case "$TERM" in
+        xterm*|rxvt*) PROMPT_COMMAND='printf "\e]2;${PWD//$HOME/\~}\007"' ;;
+        *) ;;
+esac
+
 f() {
         find ${@:2} -mindepth 1 -name "*$1*"
 }
