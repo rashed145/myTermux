@@ -8,16 +8,8 @@ f() {
         find ${@:2} -mindepth 1 -name "*$1*"
 }
 
-cf() {
-        [ -d "${1:-$PWD}" ] || { echo No such Dir.; return 1; }
-        total_f=$(find $1 -mindepth 1 -type f -printf '.' | wc -c)
-        total_d=$(find $1 -mindepth 1 -type d -printf '.' | wc -c)
-        total_l=$(find $1 -mindepth 1 -type l -printf '.' | wc -c)
-        echo -e "\e[1m${1:-$PWD}\e[0m\nFILES: $total_f\nDIRS: $total_d\nLINKS: $total_l"
-}
-
 cd() {
-        builtin cd $@ && ls 2>/dev/null
+        builtin cd $@ && exa --icons -x 2>/dev/null
 }
 
 alias n='nano -Seiqx -T4'
@@ -25,10 +17,10 @@ alias c=clear
 alias md='mkdir -p'
 alias cp='cp -r'
 alias rm='rm -r'
-alias l='ls --color=auto'
-alias ll='l -l'
-alias la='l -A'
-alias lla='la -l'
+alias l='exa --icons -x'
+alias ll='l -lh'
+alias la='l -a'
+alias lla='ll -a'
 alias grep='grep --color=auto'
 alias g='grep'
 alias -- -='cd - 2>/dev/null'
@@ -38,7 +30,7 @@ alias .....='cd ../../../..'
 alias h='history'
 alias rh='history -c; history -w'
 alias hs='h|g'
-alias t=tree
+alias t='l -T'
 
 shopt -s autocd xpg_echo
 
