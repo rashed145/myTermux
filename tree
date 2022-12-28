@@ -1,2 +1,0 @@
-#!/usr/bin/bash
-find $@|sed -e 's;[^/]*/;|==(;g;s;==(|; |;g'
