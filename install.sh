@@ -1,8 +1,9 @@
 set -e
 echo -e "\e[1mDownloading configuration files...\e[0m\n"
 curl -L https://raw.githubusercontent.com/rashed145/mytools/main/colorspec -o ~/bin/colorspec --create-dirs
-curl -L https://raw.githubusercontent.com/rashed145/mytools/main/.profile -o ~/.profile
-curl -L https://raw.githubusercontent.com/rashed145/mytools/main/.bashrc -o ~/.bashrc
+curl -L https://raw.githubusercontent.com/rashed145/mytools/main/profile -o ~/.profile
+curl -L https://raw.githubusercontent.com/rashed145/mytools/main/bashrc -o ~/.bashrc
+curl -L https://raw.githubusercontent.com/rashed145/mytools/main/nanorc -o ~/.nanorc
 chmod +x ~/bin/*
 mkdir -p ~/{.termux/{.fonts,.colors},.bash_themes}
 echo -e "\n\e[1mChanging TERMUX settings...\e[0m\n"
