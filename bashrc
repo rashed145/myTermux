@@ -43,7 +43,7 @@ alias t='tree'
 
 shopt -s autocd xpg_echo
 
-PROMPT_COMMAND="${PROMPT_COMMAND}${PROMPT_COMMAND:+;}history -a; history -n; add_newline"
+PROMPT_COMMAND="${PROMPT_COMMAND}${PROMPT_COMMAND:+;}history -a; history -n"
 HISTTIMEFORMAT="(%d/%m/%y|%R)=>"
 
 bind "set bell-style visible"
