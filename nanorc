@@ -1,0 +1,15 @@
+set emptyline
+set zap
+set nohelp
+set mouse
+set linenumbers
+set softwrap
+set tabsize 4
+
+set errorcolor bold,#000,#e54
+set numbercolor #aaa,black
+set promptcolor bold,#ef6,black
+set selectedcolor ,#444
+set spotlightcolor black,lightgreen
+set statuscolor bold,#1af,black
+set titlecolor bold,#3e9,black
