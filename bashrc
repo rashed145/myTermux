@@ -60,4 +60,4 @@ bind '"\t": menu-complete'
 bind '"\e[A": history-search-backward'
 bind '"\e[B": history-search-forward'
 
-[ -r ~/.bash_themes/polus.bash_theme ] && . ~/.bash_themes/polus.bash_theme
+[ -r ~/.config/bash/themes/polus.bash-theme ] && . ~/.config/bash/themes/polus.bash-theme
