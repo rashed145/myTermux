@@ -3,9 +3,8 @@ echo -e "\e[1mDownloading configuration files...\e[0m\n"
 curl -L https://raw.githubusercontent.com/rashed145/mytools/main/colorspec -o ~/bin/colorspec --create-dirs
 curl -L https://raw.githubusercontent.com/rashed145/mytools/main/profile -o ~/.profile
 curl -L https://raw.githubusercontent.com/rashed145/mytools/main/bashrc -o ~/.bashrc
-curl -L https://raw.githubusercontent.com/rashed145/mytools/main/nanorc -o ~/.nanorc
+curl -L https://raw.githubusercontent.com/rashed145/mytools/main/nanorc -o ~/.config/nano/nanorc --create-dirs
 chmod +x ~/bin/*
-mkdir -p ~/{.termux/{.fonts,.colors},.bash_themes}
 echo -e "\n\e[1mChanging TERMUX settings...\e[0m\n"
 echo """
 allow-external-apps = true
@@ -16,11 +15,11 @@ bell-character = ignore
 terminal-margin-horizontal=10
 enforce-char-based-input = true
 """|tee -a ~/.termux/termux.properties
-touch ~/.hushlogin
+echo "TERMUX_HUSHLOGIN=1"|tee -a ~/.termux/motd.sh
 echo -e "\n\e[1mDownloading Theme and Font...\e[0m\n"
-curl -L https://raw.githubusercontent.com/termux/termux-styling/master/app/src/main/assets/colors/argonaut.properties -o ~/.termux/.colors/argonaut.properties
-curl -L https://raw.githubusercontent.com/rashed145/polus-bash-theme/main/polus.bash_theme -o ~/.bash_themes/polus.bash_theme
-curl -L https://github.com/ryanoasis/nerd-fonts/blob/v2.2.2/patched-fonts/Hack/Regular/complete/Hack%20Regular%20Nerd%20Font%20Complete.ttf?raw=true -o ~/.termux/.fonts/Hack.ttf
+curl -L https://raw.githubusercontent.com/termux/termux-styling/master/app/src/main/assets/colors/argonaut.properties -o ~/.termux/.colors/argonaut.properties --create-dirs
+curl -L https://raw.githubusercontent.com/rashed145/polus-bash-theme/main/polus.bash_theme -o ~/.config/bash/themes/polus.bash-theme --create-dirs
+curl -L https://github.com/ryanoasis/nerd-fonts/blob/v2.2.2/patched-fonts/Hack/Regular/complete/Hack%20Regular%20Nerd%20Font%20Complete.ttf?raw=true -o ~/.termux/.fonts/Hack.ttf --create-dirs
 ln -sf ~/.termux/{.fonts/Hack.ttf,font.ttf}
 ln -sf ~/.termux/{.colors/argonaut.properties,colors.properties}
 termux-setup-storage
