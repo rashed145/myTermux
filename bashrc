@@ -18,7 +18,7 @@ cd() {
 
 fcd() {
         [ -d ${1:-.} ] && local d="$(find -L $1 -mindepth 1 -name Android -prune -o -name '.thumb*' -prune -o -name .git -prune -o -type d -print|fzf -0)"||return 1
-        test -d "$d" && cd ${@:2} "$d"||return 0
+        test -n "$d" && cd ${@:2} "$d"||return 0
 }
 
 alias n='nano'
