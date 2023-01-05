@@ -5,11 +5,11 @@ case "$TERM" in
 esac
 
 f() {
-        find ${@:2} -mindepth 1 -name "*$1*"
+        find ${@:2} -mindepth 1 -name "*$1*" 2>/dev/null
 }
 
 fcat() {
-        [ -d ${1:-.} ] && find -L $1 -mindepth 1 -name Android -prune -o -name '.thumb*' -prune -o -name .git -prune -o -type f -print|fzf -0|xargs -d '\n' -L1 -r cat
+        [ -d ${1:-.} ] && find -L $1 -mindepth 1 -type f 2>/dev/null|fzf -0|xargs -d '\n' -L1 -r cat
 }
 
 cd() {
@@ -17,7 +17,7 @@ cd() {
 }
 
 fcd() {
-        [ -d ${1:-.} ] && local d="$(find -L $1 -mindepth 1 -name Android -prune -o -name '.thumb*' -prune -o -name .git -prune -o -type d -print|fzf -0)"||return 1
+        [ -d ${1:-.} ] && local d="$(find -L $1 -mindepth 1 -type d 2>/dev/null|fzf -0)"||return 1
         test -n "$d" && cd ${@:2} "$d"||return 0
 }
 
