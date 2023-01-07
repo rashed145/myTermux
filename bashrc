@@ -17,7 +17,7 @@ cd() {
 }
 
 fcd() {
-        [[ -d "${1:-.}" ]] && local d="$(find -L "${1:-.}" -mindepth 1 -type d 2>/dev/null|fzf -0)"||return 1
+        [[ -d "${1:-.}" ]] && local d=$(find -L "${1:-.}" -mindepth 1 -type d 2>/dev/null|fzf -0)||return 1
         test -n "$d" && cd "${@:2}" "$d"||return 0
 }
 
