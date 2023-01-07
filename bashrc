@@ -1,24 +1,24 @@
-[[ "$-" = *i* ]] ||return
-case "$TERM" in
-        xterm*|rxvt*) PROMPT_COMMAND='printf "\e]2;${PWD//$HOME/\~}\007"' ;;
+[[ $- = *i* ]] ||return
+case $TERM in
+        xterm*|rxvt*) PROMPT_COMMAND='printf "\e]2;${PWD//$HOME/\~}\a"' ;;
         *) ;;
 esac
 
 f() {
-        find ${@:2} -mindepth 1 -name "*$1*" 2>/dev/null
+        find "${@:2}" -mindepth 1 -name "*$1*" 2>/dev/null
 }
 
 fcat() {
-        [ -d ${1:-.} ] && find -L $1 -mindepth 1 -type f 2>/dev/null|fzf -0|xargs -d '\n' -L1 -r cat
+        [[ -d "${1:-.}" ]] && find -L "${1:-.}" -mindepth 1 -type f 2>/dev/null|fzf -0|xargs -d '\n' -L1 -r cat
 }
 
 cd() {
-        builtin cd $@ && ls 2>/dev/null
+        builtin cd "$@" &>/dev/null && ls 2>/dev/null||return 0
 }
 
 fcd() {
-        [ -d ${1:-.} ] && local d="$(find -L $1 -mindepth 1 -type d 2>/dev/null|fzf -0)"||return 1
-        test -n "$d" && cd ${@:2} "$d"||return 0
+        [[ -d "${1:-.}" ]] && local d="$(find -L "${1:-.}" -mindepth 1 -type d 2>/dev/null|fzf -0)"||return 1
+        test -n "$d" && cd "${@:2}" "$d"||return 0
 }
 
 alias n='nano'
@@ -32,7 +32,7 @@ alias la='l -A'
 alias lla='ll -A'
 alias grep='grep --color=auto'
 alias g='grep'
-alias -- -='cd - 2>/dev/null'
+alias -- -='cd -'
 alias ...='cd ../..'
 alias ....='cd ../../..'
 alias .....='cd ../../../..'
@@ -40,11 +40,12 @@ alias h='history'
 alias rh='history -c; history -w'
 alias hs='h|g'
 alias t='tree'
-
+alias ins='apt update && apt install'
+alias d='dirs -v|sed 1d'
 shopt -s autocd xpg_echo
 
 PROMPT_COMMAND="${PROMPT_COMMAND}${PROMPT_COMMAND:+;}history -a; history -n"
-HISTTIMEFORMAT="(%d/%m/%y|%R)=>"
+HISTTIMEFORMAT="(%d/%m/%y|%R) "
 
 bind "set bell-style visible"
 bind "set colored-completion-prefix on"
