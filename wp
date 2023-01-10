@@ -1,7 +1,7 @@
 #!/usr/bin/bash
 
 wpid="$1"
-c="${2:-2}"
+c="${2:-1}"
 [ -z "$wpid" ] && {
 	read -p "ID: " wpid
 	{ [[ -z "${wpid//[a-z0-9\-]/}" ]] && [ ${#wpid} -eq 36 ]; } || { echo "Invalid ID" && exit 1; }
