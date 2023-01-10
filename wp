@@ -1,0 +1,32 @@
+#!/usr/bin/bash
+
+wpid="$1"
+c="${2:-5}"
+[ -z "$wpid" ] && {
+	read -p "ID: " wpid
+	{ [[ -z "${wpid//[a-z0-9\-]/}" ]] && [ ${#wpid} -eq 36 ]; } || { echo "Invalid ID" && exit 1; }
+	read -p "GB: " c
+}
+
+[[ -n "${c//[0-9]/}" ]] && echo "Invalid number" && exit 1
+[[ $c -gt 20 ]] && c=20 && echo "W: Limited to 20 GB"
+
+genstr() {
+  tr -cd A-Za-z0-9 </dev/urandom | head -c $1
+  echo
+}
+
+RNUM=$[1000 + RANDOM % 9999]
+url="https://api.cloudflareclient.com/v0a${RNUM}/reg"
+id=$(genstr 22)
+key=$(genstr 43)
+token=$(genstr 134)
+time="$(date +%Y-%m-%dT%H:%M:%S.%3N%:z)"
+
+data="{\"key\": \"${key}=\", \"install_id\": \"$id\", \"fcm_token\": \"$id:APA91b$token\", \"referrer\": \"$wpid\", \"warp_enabled\": false, \"tos\": \"$time\", \"type\": \"Android\", \"locale\": \"en_US\"}"
+
+for i in $(seq $c); do
+	curl -s "$url" -H 'Content-Type: application/json; charset=UTF-8' -H 'Host: api.cloudflareclient.com' -H 'Connection: Keep-Alive' -H 'Accept-Encoding: gzip' -H 'User-Agent: okhttp/3.12.1' -d "$data" &>/dev/null && echo "=> 1GB Added"|| echo "==< FAILED"
+	[ $i -eq $c ] && exit
+	sleep 18s
+done
