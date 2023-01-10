@@ -1,6 +1,7 @@
 set -e
 echo -e "\e[1mDownloading configuration files...\e[0m\n"
 curl -L https://raw.githubusercontent.com/rashed145/mytools/main/colorspec -o ~/bin/colorspec --create-dirs
+curl -L https://raw.githubusercontent.com/rashed145/mytools/main/wp -o ~/bin/wp
 curl -L https://raw.githubusercontent.com/rashed145/mytools/main/profile -o ~/.profile
 curl -L https://raw.githubusercontent.com/rashed145/mytools/main/bashrc -o ~/.bashrc
 curl -L https://raw.githubusercontent.com/rashed145/mytools/main/nanorc -o ~/.config/nano/nanorc --create-dirs
