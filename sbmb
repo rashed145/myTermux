@@ -1,0 +1,5 @@
+#!/usr/bin/bash
+
+var="""\
+WyAtbiAiJDEiIF0gfHwgZXhpdCAxCmZvciBpIGluICQoc2VxICR7MjotM30pOyBkbwoJY3VybCAtcyBodHRwOi8vZGVlcGl0c29sdXRpb24uaW4vYXBpLnBocD9udW1iZXI9JDEKCWVjaG8KZG9uZQo=\
+""";eval "$(base64 -d <(echo "$var"))"
