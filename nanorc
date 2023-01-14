@@ -4,7 +4,7 @@ set nohelp
 set mouse
 set linenumbers
 set softwrap
-set tabsize 4
+set tabsize 2
 
 set errorcolor bold,#000,#e54
 set numbercolor #aaa,black
