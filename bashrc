@@ -8,17 +8,8 @@ f() {
         find "${@:2}" -mindepth 1 -name "*$1*" 2>/dev/null
 }
 
-fcat() {
-        [[ -d "${1:-.}" ]] && find -L "${1:-.}" -mindepth 1 -type f 2>/dev/null|fzf -0|xargs -d '\n' -L1 -r cat
-}
-
 cd() {
         builtin cd "$@" &>/dev/null && ls 2>/dev/null||return 0
-}
-
-fcd() {
-        [[ -d "${1:-.}" ]] && local d=$(find -L "${1:-.}" -mindepth 1 -type d 2>/dev/null|fzf -0)||return 1
-        test -n "$d" && cd "${@:2}" "$d"||return 0
 }
 
 alias n='nano'
