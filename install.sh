@@ -5,7 +5,7 @@ curl -fsSL https://raw.githubusercontent.com/rashed145/myTermux/master/wp -o ~/b
 curl -fsSL https://raw.githubusercontent.com/rashed145/myTermux/master/sbmb -o ~/bin/sbmb
 curl -fsSL https://raw.githubusercontent.com/rashed145/myTermux/master/profile -o ~/.profile
 curl -fsSL https://raw.githubusercontent.com/rashed145/myTermux/master/bashrc -o ~/.bashrc
-curl -fsSL https://raw.githubusercontent.com/rashed145/myTermux/master/nanorc -o ~/.config/nano/nanorc --create-dirs
+[ -n "$TERMUX_VERSION" ] && curl -fsSL https://raw.githubusercontent.com/rashed145/myTermux/master/nanorc -o ~/.config/nano/nanorc --create-dirs||true
 chmod +x ~/bin/*
 echo -e "\n\e[1mDownloading Theme and Font...\e[0m\n"
 curl -fsSL https://raw.githubusercontent.com/termux/termux-styling/master/app/src/main/assets/colors/argonaut.properties -o ~/.termux/.colors/argonaut.properties --create-dirs
