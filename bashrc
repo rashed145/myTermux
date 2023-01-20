@@ -28,7 +28,7 @@ alias ins='apt update && apt install'
 alias d='dirs -v|sed 1d'
 shopt -s autocd xpg_echo
 
-mdd() { [ $# -eq 1 ] && md "$1" && cd "$@"; }
+mdd() { [ $# -eq 1 ] && md "$1" && cd "$1"; }
 
 PROMPT_COMMAND="${PROMPT_COMMAND}${PROMPT_COMMAND:+;}history -a; history -n"
 HISTTIMEFORMAT="(%d/%m/%y|%R) "
