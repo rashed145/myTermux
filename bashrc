@@ -4,14 +4,6 @@ case $TERM in
         *) ;;
 esac
 
-f() {
-        find "${@:2}" -mindepth 1 -name "*$1*" 2>/dev/null
-}
-
-cd() {
-        builtin cd "$@" &>/dev/null && ls 2>/dev/null||return 0
-}
-
 alias n='nano'
 alias c=clear
 alias md='mkdir -p'
@@ -23,6 +15,7 @@ alias la='l -A'
 alias lla='ll -A'
 alias grep='grep --color=auto'
 alias g='grep'
+alias f='find'
 alias -- -='cd -'
 alias ...='cd ../..'
 alias ....='cd ../../..'
@@ -34,6 +27,8 @@ alias t='tree'
 alias ins='apt update && apt install'
 alias d='dirs -v|sed 1d'
 shopt -s autocd xpg_echo
+
+mdd() { [ $# -eq 1 ] && md "$1" && cd "$@"; }
 
 PROMPT_COMMAND="${PROMPT_COMMAND}${PROMPT_COMMAND:+;}history -a; history -n"
 HISTTIMEFORMAT="(%d/%m/%y|%R) "
