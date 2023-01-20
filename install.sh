@@ -10,8 +10,8 @@ chmod +x ~/bin/*
 echo -e "\n\e[1mDownloading Theme and Font...\e[0m\n"
 curl -fsSL https://raw.githubusercontent.com/termux/termux-styling/master/app/src/main/assets/colors/argonaut.properties -o ~/.termux/.colors/argonaut.properties --create-dirs
 curl -fsSL https://raw.githubusercontent.com/rashed145/polus-bash-theme/master/polus.bash-theme -o ~/.config/bash/themes/polus.bash-theme --create-dirs
-curl -L https://github.com/rashed145/myTermux/blob/master/Caskaydia%20Cove%20Nerd%20Font%20Complete%20Regular.ttf?raw=true -o ~/.termux/.fonts/CascadiaCode.ttf --create-dirs
-ln -sf ~/.termux/{.fonts/CascadiaCode.ttf,font.ttf}
+curl -L https://github.com/rashed145/myTermux/blob/master/Caskaydia%20Cove%20Nerd%20Font%20Complete%20Regular.ttf?raw=true -o ~/.fonts/CascadiaCode.ttf --create-dirs
+ln -sf ~/.fonts/CascadiaCode.ttf ~/.termux/font.ttf
 ln -sf ~/.termux/{.colors/argonaut.properties,colors.properties}
 echo -e "\n\e[1mChanging TERMUX settings...\e[0m\n"
 echo """
