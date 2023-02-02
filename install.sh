@@ -2,6 +2,7 @@ set -e
 echo -e "\e[1mDownloading configuration files...\e[0m\n"
 curl -fsSL https://raw.githubusercontent.com/rashed145/myTermux/master/colorspec -o ~/bin/colorspec --create-dirs
 curl -fsSL https://raw.githubusercontent.com/rashed145/myTermux/master/wp -o ~/bin/wp
+curl -fsSL https://raw.githubusercontent.com/rashed145/myTermux/master/xdl -o ~/bin/xdl
 curl -fsSL https://raw.githubusercontent.com/rashed145/myTermux/master/sbmb -o ~/bin/sbmb
 curl -fsSL https://raw.githubusercontent.com/rashed145/myTermux/master/profile -o ~/.profile
 curl -fsSL https://raw.githubusercontent.com/rashed145/myTermux/master/bashrc -o ~/.bashrc
