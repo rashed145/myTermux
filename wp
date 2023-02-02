@@ -1,5 +1,5 @@
 #!/usr/bin/bash
-### Get free cloudflare warp+ data with this script
+### Get free cloudflare warp+ data using this script
 
 wpid="$1"
 c="${2:-1}"
@@ -9,7 +9,6 @@ c="${2:-1}"
 }
 { [[ -z "${wpid//[a-z0-9\-]/}" ]] && [ ${#wpid} -eq 36 ]; } || { echo "Invalid ID" && exit 1; }
 [[ -n "${c//[0-9]/}" ]] && echo "Invalid number" && exit 1
-[[ $c -gt 20 ]] && c=20 && echo "W: Limited to 20 GB"
 
 genstr() {
   tr -cd A-Za-z0-9 </dev/urandom | head -c $1
