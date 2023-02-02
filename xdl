@@ -5,7 +5,7 @@ lk="$1"
 ql="$2"
 
 rl() {
-	[ -z "$lk" ] && read -ep 'XNXX Video URL: ' lk
+	[ -z "$lk" ] && read -ep 'Video URL: ' lk
 	[ -z "$ql" ] && read -en1 -p "Quality?[L]ow/[H]igh? " ql
 }
 
