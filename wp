@@ -2,7 +2,7 @@
 ### Get free cloudflare warp+ data using this script
 
 wpid="$1"
-c="${2:-1}"
+c="${2:-2}"
 [ -z "$wpid" ] && {
 	read -p "ID: " wpid
 	read -p "GB: " c
