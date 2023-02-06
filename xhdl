@@ -1,0 +1,21 @@
+set -e
+u=$1
+f=$2
+t=$(mktemp)
+trap 'rm -f "$t"' EXIT
+
+[ -z "$u" ] && {
+read -ep 'Enter URL: ' u
+}
+curl -fsSL "$u" -o $t
+
+[ -z "$f" ] && {
+size=($(sed  -e 's/\"download\"/\n\"download\"/g' -e 's/}}}/\n/g' $t |grep \"download\"|sed -e 's/:{/ /g' -e 's/},/|/g' -e 's/,/ /g' -e 's/\\//g'))
+echo ${size[@]:1}|tr '|' '\n'|awk '{print $1,$NF}'|tr -d ' \"size\"'|numfmt -d: --field=2 --to=iec-i
+read -ep $'Enter format: ' f
+}
+[[ -n "$u" && -n "$f" ]]||exit 1
+
+url=($(sed  -e 's/\"sources\"/\n\"sources\"/g' -e 's/}}}/\n/g' $t|grep \"sources\":{\"mp4\"|sed -e 's/:{/\n/g' -e 's/\",\"/\"\n\"/g' -e 's/\"//g' -e 's/},/\n/g'|grep $f:|sed 's/\\//g'))
+
+curl -C - -L "${url#*:}" -H "Referer: $u" -o "${u##*/}".mp4
