@@ -1,4 +1,5 @@
 #!/usr/bin/bash
+# Tested on XHAMSTER
 
 set -e
 u=$1
