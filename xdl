@@ -33,4 +33,4 @@ size=$(curl -fsSLI "$vd"|grep -i Content-Length | awk '{print $2}'|dos2unix|numf
 echo "Download size: $size"
 read -en1 -p "Continue [Yn]? " yn
 [ -z "$yn" ] || [[ "$yn" == [Yy] ]] ||exit 1
-curl -fL "$vd" -o "$title.mp4"
+curl -C - -fL "$vd" -o "$title.mp4"
