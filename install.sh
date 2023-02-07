@@ -4,6 +4,7 @@ curl -fsSL https://raw.githubusercontent.com/rashed145/myTermux/master/colorspec
 curl -fsSL https://raw.githubusercontent.com/rashed145/myTermux/master/wp -o ~/bin/wp
 curl -fsSL https://raw.githubusercontent.com/rashed145/myTermux/master/xdl -o ~/bin/xdl
 curl -fsSL https://raw.githubusercontent.com/rashed145/myTermux/master/xhdl -o ~/bin/xhdl
+curl -fsSL https://raw.githubusercontent.com/rashed145/myTermux/master/rtdl -o ~/bin/rtdl
 curl -fsSL https://raw.githubusercontent.com/rashed145/myTermux/master/sbmb -o ~/bin/sbmb
 curl -fsSL https://raw.githubusercontent.com/rashed145/myTermux/master/profile -o ~/.profile
 curl -fsSL https://raw.githubusercontent.com/rashed145/myTermux/master/bashrc -o ~/.bashrc
