@@ -35,5 +35,5 @@ apt update && yes|apt full-upgrade
 echo "deb https://grimler.se/termux/termux-main stable main"|tee $PREFIX/etc/apt/sources.list
 }||true
 apt update && yes|apt install man tree
-curl -fsSL https://github.com/Khang-NT/ffmpeg-binary-android/releases/download/2018-07-31/arm64-v8a-lite.tar.bz2 -o ~/.archives/ffmpeg.tar.bz2
+curl -fsSL https://github.com/Khang-NT/ffmpeg-binary-android/releases/download/2018-07-31/arm64-v8a-lite.tar.bz2 -o ~/.archives/ffmpeg.tar.bz2 --create-dirs
 tar xf ~/.archives/ffmpeg.tar.bz2 -C ~/bin
