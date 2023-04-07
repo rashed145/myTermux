@@ -21,7 +21,7 @@ echo """
 allow-external-apps = true
 disable-terminal-session-change-toast = true
 terminal-transcript-rows = 3000
-terminal-cursor-style = bar
+terminal-cursor-style = underline
 bell-character = ignore
 terminal-margin-horizontal=10
 enforce-char-based-input = true
