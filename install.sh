@@ -31,7 +31,7 @@ termux-setup-storage
 echo -e "\n\e[1mUpdating...\e[0m\n"
 [ -n "$TERMUX_VERSION" ] && {
 echo "deb https://packages-cf.termux.org/apt/termux-main stable main"|tee $PREFIX/etc/apt/sources.list
-apt update && yes|apt full-upgrade
+apt update && yes|apt dist-upgrade
 echo "deb https://grimler.se/termux/termux-main stable main"|tee $PREFIX/etc/apt/sources.list
 }||true
 apt update && yes|apt install man tree
