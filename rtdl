@@ -41,4 +41,6 @@ read -en1 -p 'Continue [Yn]? ' yn
 [[ -z "$yn" || "$yn" == [Yy] ]]||exit 1
 
 t=$(echo "${title%,}"|tr -d '"')
+
+hash aria2c 2>/dev/null && aria2c "$url" -o "$t.mp4" && exit
 curl -C - -fL "$url" -o "$t.mp4"
