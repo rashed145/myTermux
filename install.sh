@@ -35,8 +35,7 @@ apt update && yes|apt dist-upgrade
 echo "deb https://grimler.se/termux/termux-main stable main"|tee $PREFIX/etc/apt/sources.list
 }||true
 apt update && yes|apt install man tree python clang- python-ensurepip-wheels- aria2
-echo -e "\n\e[1mDownloading FFMPEG\e[0m"
-aria2c -Z https://github.com/Khang-NT/ffmpeg-binary-android/releases/download/2018-07-31/arm64-v8a-lite.tar.bz2 https://github.com/yt-dlp/yt-dlp/releases/latest/download/yt-dlp
-tar xf arm64-v8a-lite.tar.bz2 -C ~/bin
-mv yt-dlp ~/bin
+echo -e "\n\e[1mDownloading YT-DLP & FFMPEG\e[0m"
+aria2c -Z https://github.com/Khang-NT/ffmpeg-binary-android/releases/download/2018-07-31/arm64-v8a-lite.tar.bz2 https://github.com/yt-dlp/yt-dlp/releases/latest/download/yt-dlp -d ~/bin
+tar xf ~/bin/arm64-v8a-lite.tar.bz2 -C ~/bin
 chmod +x ~/bin/*
