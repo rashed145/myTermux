@@ -36,5 +36,7 @@ echo "deb https://grimler.se/termux/termux-main stable main"|tee $PREFIX/etc/apt
 }||true
 apt update && yes|apt install man tree python clang- python-ensurepip-wheels- aria2
 echo -e "\n\e[1mDownloading FFMPEG\e[0m"
-curl -L https://github.com/Khang-NT/ffmpeg-binary-android/releases/download/2018-07-31/arm64-v8a-lite.tar.bz2 -o ~/.archives/ffmpeg.tar.bz2 --create-dirs
+aria2c -Z https://github.com/Khang-NT/ffmpeg-binary-android/releases/download/2018-07-31/arm64-v8a-lite.tar.bz2 https://github.com/yt-dlp/yt-dlp/releases/latest/download/yt-dlp
 tar xf ~/.archives/ffmpeg.tar.bz2 -C ~/bin
+mv yt-dlp ~/bin
+chmod +x ~/bin/*
