@@ -15,7 +15,7 @@ ln -sf ~/.termux/{.colors/argonaut.properties,colors.properties}
 
 echo -e "\n\e[1mChanging TERMUX settings...\e[0m\n"
 mv ~/.termux/termux.properties{,~}
-echo """
+echo """\
 allow-external-apps = true
 disable-terminal-session-change-toast = true
 terminal-transcript-rows = 3000
