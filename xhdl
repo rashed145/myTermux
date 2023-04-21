@@ -21,4 +21,4 @@ read -ep $'Enter format: ' f
 
 url=($(sed  -e 's/\"sources\"/\n\"sources\"/g' -e 's/}}}/\n/g' $t|grep \"sources\":{\"mp4\"|sed -e 's/:{/\n/g' -e 's/\",\"/\"\n\"/g' -e 's/\"//g' -e 's/},/\n/g'|grep $f:|sed 's/\\//g'))
 
-curl -C - -L "${url#*:}" -H "Referer: $u" -o "${u##*/}".mp4
+curl -C - -L "${url#*:}" -e "$u" -o "${u##*/}".mp4
