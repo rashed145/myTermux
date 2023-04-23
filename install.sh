@@ -22,6 +22,7 @@ terminal-transcript-rows = 3000
 terminal-cursor-style = bar
 bell-character = ignore
 terminal-margin-horizontal=10
+extra-keys=[['ALT','TAB','CTRL','$','_','-','LEFT','DOWN','UP','RIGHT']]
 """|tee ~/.termux/termux.properties
 echo "TERMUX_HUSHLOGIN=1"|tee -a ~/.termux/motd.sh
 test -w /sdcard||termux-setup-storage
