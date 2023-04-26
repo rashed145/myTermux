@@ -24,7 +24,8 @@ alias h='history'
 alias rh='history -c; history -w'
 alias hs='h|g'
 alias t='tree'
-alias ins='apt update && apt install'
+alias pst='pstree -TalhpCage'
+alias ins='apt install'
 alias d='dirs -v|sed 1d'
 shopt -s autocd xpg_echo
 
