@@ -1,7 +1,7 @@
 set -e
 echo -e "\e[1mDownloading configuration files...\e[0m\n"
 curl --parallel-immediate -C - -ZfsSL \
-	"https://raw.githubusercontent.com/rashed145/myTermux/master/{colorspec,wp,sbmb,xdl,xhdl,rtdl}" -o ~/bin/"#1" \
+	"https://raw.githubusercontent.com/rashed145/myTermux/master/{colorspec,wp,sbmb}" -o ~/bin/"#1" \
 	"https://raw.githubusercontent.com/rashed145/myTermux/master/{bashrc,profile}" -o ~/".#1" \
 	https://raw.githubusercontent.com/rashed145/myTermux/master/nanorc -o ~/.config/nano/nanorc --create-dirs
 
