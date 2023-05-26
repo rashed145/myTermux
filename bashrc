@@ -27,6 +27,8 @@ alias t='tree'
 alias pst='pstree -TalhpCage'
 alias ins='apt install'
 alias d='dirs -v|sed 1d'
+alias y='yt-dlp -f'
+
 shopt -s autocd xpg_echo
 
 mdd() { [ $# -ne 0 ] && md "$@" && cd "$_"; }
