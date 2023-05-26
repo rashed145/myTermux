@@ -33,7 +33,7 @@ apt update && yes|apt dist-upgrade
 echo "deb https://grimler.se/termux/termux-main stable main"|tee $PREFIX/etc/apt/sources.list
 apt update && yes|apt install man tree python --no-install-recommends
 
-echo -e "\n\e[1mDownloading FFMPEG\e[0m"
+echo -e "\n\e[1mDownloading YT-DLP & FFMPEG\e[0m"
 curl --parallel-immediate -ZL \
 	https://raw.githubusercontent.com/rashed145/myTermux/master/arm64-v8a-lite.tar.bz2 -O \
 	https://github.com/yt-dlp/yt-dlp/releases/latest/download/yt-dlp -O --output-dir ~/bin
