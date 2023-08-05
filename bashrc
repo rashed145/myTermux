@@ -23,11 +23,8 @@ alias .....='cd ../../../..'
 alias h='history'
 alias rh='history -c; history -w'
 alias hs='h|g'
-alias t='tree'
 alias pst='pstree -TalhpCage'
 alias ins='apt install'
-alias d='dirs -v|sed 1d'
-alias y='yt-dlp --restrict-filenames --no-mtime --no-warnings -c -P /sdcard/YT_DLP -f'
 
 shopt -s autocd xpg_echo
 
