@@ -1,7 +1,7 @@
 set -e
 echo -e "\e[1mDownloading configuration files...\e[0m\n"
 curl --parallel-immediate -C - -ZfsSL \
-	"https://raw.githubusercontent.com/rashed145/myTermux/master/{colorspec,wp,sbmb}" -o ~/bin/"#1" \
+	"https://raw.githubusercontent.com/rashed145/myTermux/master/{colorspec,wp}" -o ~/bin/"#1" \
 	"https://raw.githubusercontent.com/rashed145/myTermux/master/{bashrc,profile}" -o ~/".#1" \
 	https://raw.githubusercontent.com/rashed145/myTermux/master/nanorc -o ~/.config/nano/nanorc --create-dirs
 
@@ -31,12 +31,11 @@ echo -e "\n\e[1mUpdating...\e[0m\n"
 echo "deb https://packages-cf.termux.org/apt/termux-main stable main"|tee $PREFIX/etc/apt/sources.list
 apt update && yes|apt dist-upgrade
 echo "deb https://grimler.se/termux/termux-main stable main"|tee $PREFIX/etc/apt/sources.list
-apt update && yes|apt install man tree python --no-install-recommends
+apt update && yes|apt install man --no-install-recommends
 
-echo -e "\n\e[1mDownloading YT-DLP & FFMPEG\e[0m"
+echo -e "\n\e[1mDownloading FFMPEG\e[0m"
 curl --parallel-immediate -ZL \
-	https://raw.githubusercontent.com/rashed145/myTermux/master/arm64-v8a-lite.tar.bz2 -O \
-	https://github.com/yt-dlp/yt-dlp/releases/latest/download/yt-dlp -O --output-dir ~/bin
+	https://raw.githubusercontent.com/rashed145/myTermux/master/arm64-v8a-lite.tar.bz2 -O --output-dir ~/bin
 tar xf ~/bin/arm64-v8a-lite.tar.bz2 -C ~/bin
 rm ~/bin/arm64-v8a-lite.tar.bz2
 chmod +x ~/bin/*
