@@ -18,7 +18,7 @@ mv ~/.termux/termux.properties{,~}
 echo """\
 allow-external-apps = true
 disable-terminal-session-change-toast = true
-terminal-transcript-rows = 3000
+terminal-transcript-rows = 4000
 terminal-cursor-style = bar
 bell-character = ignore
 terminal-margin-horizontal=10
@@ -28,9 +28,9 @@ echo "TERMUX_HUSHLOGIN=1"|tee -a ~/.termux/motd.sh
 test -w /sdcard||termux-setup-storage
 
 echo -e "\n\e[1mUpdating...\e[0m\n"
-echo "deb https://packages-cf.termux.org/apt/termux-main stable main"|tee $PREFIX/etc/apt/sources.list
+echo "deb https://packages-cf.termux.dev/apt/termux-main/ stable main"|tee $PREFIX/etc/apt/sources.list
 apt update && yes|apt dist-upgrade
-echo "deb https://grimler.se/termux/termux-main stable main"|tee $PREFIX/etc/apt/sources.list
+echo "deb https://packages-cf.termux.dev/apt/termux-main/ stable main"|tee $PREFIX/etc/apt/sources.list
 apt update && yes|apt install man --no-install-recommends
 
 echo -e "\n\e[1mDownloading FFMPEG\e[0m"
