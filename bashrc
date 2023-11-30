@@ -4,6 +4,7 @@ case $TERM in
         *) ;;
 esac
 
+alias o=xdg-open
 alias n='nano'
 alias c=clear
 alias md='mkdir -p'
@@ -42,7 +43,7 @@ t() (
 
 PROMPT_COMMAND="${PROMPT_COMMAND}${PROMPT_COMMAND:+;}history -a; history -n"
 HISTTIMEFORMAT="(%d/%m/%y|%R) "
-CDPATH=$PREFIX
+CDPATH=".:$PREFIX:$EXTERNAL_STORAGE"
 
 bind "set bell-style visible"
 bind "set colored-completion-prefix on"
