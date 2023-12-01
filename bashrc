@@ -66,5 +66,6 @@ fcd() {
 }
 
 bind '"\ea":"\C-afcd \C-j"'
+bind '"\ej":"\C-acd \C-j"'
 
 [ -r ~/.config/bash/themes/polus.bash-theme ] && . ~/.config/bash/themes/polus.bash-theme
