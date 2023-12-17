@@ -1,7 +1,7 @@
 set -e
 echo -e "\e[1mDownloading configuration files...\e[0m\n"
 curl --parallel-immediate -C - -ZfsSL \
-	"https://raw.githubusercontent.com/rashed145/myTermux/master/{colorspec,wp,sp}" -o ~/bin/"#1" \
+	"https://raw.githubusercontent.com/rashed145/myTermux/master/{colorspec}" -o ~/bin/"#1" \
 	"https://raw.githubusercontent.com/rashed145/myTermux/master/{bashrc,profile}" -o ~/".#1" \
 	https://raw.githubusercontent.com/rashed145/myTermux/master/nanorc -o ~/.config/nano/nanorc --create-dirs
 
@@ -29,9 +29,9 @@ test -w /sdcard||termux-setup-storage
 
 echo -e "\n\e[1mUpdating...\e[0m\n"
 echo "deb https://packages-cf.termux.dev/apt/termux-main/ stable main"|tee $PREFIX/etc/apt/sources.list
-apt update && yes|apt dist-upgrade
+apt-get -q=2 update && yes|apt-get -q=2 dist-upgrade
 echo "deb https://packages-cf.termux.dev/apt/termux-main/ stable main"|tee $PREFIX/etc/apt/sources.list
-apt update && yes|apt install man pick aria2 --no-install-recommends
+apt-get -q=2 update && yes|apt-get -q=2 install man pick --no-install-recommends
 
 echo -e "\n\e[1mDownloading FFMPEG\e[0m"
 curl --parallel-immediate -ZL \
