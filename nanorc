@@ -4,6 +4,8 @@ set nohelp
 set mouse
 set linenumbers
 set softwrap
+set autoindent
+set multibuffer
 set tabsize 2
 
 set errorcolor bold,#000,#e54
