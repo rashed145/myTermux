@@ -60,6 +60,7 @@ bind "set menu-complete-display-prefix on"
 bind "set page-completions off"
 bind "set revert-all-at-newline on"
 bind "set show-all-if-ambiguous on"
+bind "set show-all-if-unmodified on"
 bind "set skip-completed-text on"
 bind '"\t": menu-complete'
 bind '"\e[A": history-search-backward'
