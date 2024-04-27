@@ -1,7 +1,0 @@
-#!/usr/bin/bash
-for i in {0..255}; do
-        printf "\e[1;48;5;%dm  \e[0m\e[38;5;%dm%03d " $i $i $i
-        if (((i-15)%6==0)); then
-                echo
-        fi
-done
