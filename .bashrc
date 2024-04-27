@@ -38,4 +38,4 @@ bind '"\e[B": history-search-forward'
 
 ulimit -u 250
 
-[ -r ~/.config/bash/themes/polus.bash-theme ] && . ~/.config/bash/themes/polus.bash-theme
+[ -r ~/.config/bash/themes/theme.sh ] && . ~/.config/bash/themes/theme.sh
