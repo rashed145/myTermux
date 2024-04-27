@@ -1,8 +1,0 @@
-#!/usr/bin/bash
-set -e
-u="$1";[ -z "$u" ] && read -ep 'URL: ' u;[ -n "$u" ]
-urls=(`curl -A "$ua" -fsSL "$u" |grep -Po "'\Khtt.*\.mp4"`)
-size=(`curl -A "$ua" -sLI "${urls[@]}"|grep -Po 'content-length: \K[0-9]+'|numfmt --to=iec`)
-for i in ${!size[@]}; do echo "$i : ${size[i]}"; done
-read -en1 -p 'Download: ' j
-[ -n "$j" ] && curl -qgC - -e "$u" -LO "${urls[j]}"
