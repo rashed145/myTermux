@@ -1,0 +1,11 @@
+#!/usr/bin/bash
+set -e
+u="$1";[ -z "$u" ] && read -ep 'URL: ' u;[ -n "$u" ]
+t=$(mktemp);trap 'rm -f "$t"' EXIT
+curl -qgfsSL "$u" -o $t
+s=($(grep -Po '"size":\K[0-9]+.[0-9]+' $t|numfmt --to=iec))
+l=($(grep -Po '"mp4":{\K[^}]*' $t|grep -Po 'http[^"]*'|tr -d '\\'))
+[ ${#s[@]} -eq 0 ] && { l=(`grep -Po "'\Khtt.*\.mp4" $t`); s=(`curl -sLI "${l[@]}"|grep -Po 'content-length: \K[0-9]+'|numfmt --to=iec`);}
+for i in ${!l[@]}; do printf "%d) %s\n" $i ${s[i]}; done
+read -ep 'DOWNLOAD => ' j
+[ -n "$j" ] && curl -qgC - -L "${l[j]}" -e "$u" -o "${u##*/}".mp4
