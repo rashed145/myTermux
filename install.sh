@@ -13,11 +13,11 @@ terminal-cursor-style = bar
 bell-character = ignore
 terminal-margin-horizontal=10
 extra-keys=[['ESC','TAB','CTRL','ALT','-','LEFT','DOWN','UP','RIGHT']]
-\n"""|tee -a $dir/.termux/termux.properties
-printf "TERMUX_HUSHLOGIN=1\n"|tee -a $dir/.termux/motd.sh
+\n""" >> $dir/.termux/termux.properties
+printf "TERMUX_HUSHLOGIN=1\n" >> $dir/.termux/motd.sh
 test -w /sdcard||termux-setup-storage
 printf "\e[1;92mDONE:\e[mConfiguration\n\n"
-inia() { printf "deb https://packages-cf.termux.dev/apt/termux-main/ stable main\n"|tee $PREFIX/etc/apt/sources.list;apt-get -q=2 update; }
+inia() { printf "deb https://packages-cf.termux.dev/apt/termux-main/ stable main\n" > $PREFIX/etc/apt/sources.list;apt-get -q=2 update; }
 inia && yes|apt-get -q=2 dist-upgrade
 inia && yes|apt-get -q=2 install man pick
 printf "\e[1;92mDONE:\e[mApt setup\n\n"
