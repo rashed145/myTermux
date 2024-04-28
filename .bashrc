@@ -9,7 +9,7 @@ shopt -s autocd xpg_echo
 mdd() { [ $# -ne 0 ] && md "$@" && cd "$_"; }
 calc() { awk "BEGIN { print $@ }"; }
 t() ( f="${1:-.}";[ -d "$f" ] && f=`realpath -L "$f"`||exit 1;cd "${f%/*}";find 2>/dev/null "${f##*/}"|sed "s@[^-][^\/]*\/@| @g; s@| \([^|]\)@|-\1@"; )
-updb() ( cd ~/..;find -L "$PWD" -name Android -prune -o -name '.thumb*' -prune -o -name .cache -prune -o -type d -printf '%P\n' > ~/.cddb; )
+updb() ( cd ~/..;find -L -name Android -prune -o -name '.thumb*' -prune -o -name .cache -prune -o -type d -printf '%P\n' > ~/.cddb; )
 fcd() { [ -s ~/.cddb ]||updb;local d=$(pick < ~/.cddb); [ -z "$d" ] && return; cd "/data/data/com.termux/files/$d" &>/dev/null||updb; }
 clr() { for i in {0..255}; do printf "\e[48;5;%dm  \e[m\e[38;5;%dm%03d\e[m " $i $i $i; (((i-15)%6==0)) && echo; done; }
 bind '"\eq": "\C-ex\C-u fcd\C-m\C-y\C-b\C-d"'
