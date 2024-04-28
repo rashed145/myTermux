@@ -21,6 +21,6 @@ inia() { printf "deb https://packages-cf.termux.dev/apt/termux-main/ stable main
 inia && yes|apt-get -q=2 dist-upgrade
 inia && yes|apt-get -q=2 install man pick
 printf "\e[1;92mDONE:\e[mApt setup\n\n"
-curl --parallel-immediate -ZL $repo/arm64-v8a-lite.tar.bz2 -O --output-dir $dir/bin
+curl --parallel-immediate -ZL $repo/arm64-v8a-lite.tar.bz2 -O --output-dir $dir/bin --create-dirs
 tar xf $dir/bin/arm64-v8a-lite.tar.bz2 -C $dir/bin && rm $dir/bin/arm64-v8a-lite.tar.bz2 && chmod +x $dir/bin/*
 printf "\e[1;93mADDED:\e[mFFMpeg\n"
